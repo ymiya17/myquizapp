@@ -1,14 +1,17 @@
-'use strict';
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <section class="container">
+    <p id="question"></p>
+    <ul id="choices"></ul>
+    <div id="btn" class="disabled">Next</div>
+  </section>
 
-{
-  const question = document.getElementById('question');
-  const choices = document.getElementById('choices');
-  const btn = document.getElementById('btn');
-
-  const quizSet = [
-    {q: 'What is A?', c: ['A0', 'A1', 'A2']},
-    {q: 'What is B?', c: ['B0', 'B1', 'B2']},
-    {q: 'What is C?', c: ['C0', 'C1', 'C2']},　
-  ];
-  let currentNum = 0;
-}
+  <script src="js/main.js"></script>
+</body>
+</html>
