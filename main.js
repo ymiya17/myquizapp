@@ -1,17 +1,32 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Quiz</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <section class="container">
-    <p id="question"></p>
-    <ul id="choices"></ul>
-    <div id="btn" class="disabled">Next</div>
-  </section>
+'use strict';
 
-  <script src="js/main.js"></script>
-</body>
-</html>
+{
+  const question = document.getElementById('question');
+  const choices = document.getElementById('choices');
+  const btn = document.getElementById('btn');
+
+  const quizSet = [
+    {q: 'What is A?', c: ['A0', 'A1', 'A2']},
+    {q: 'What is B?', c: ['B0', 'B1', 'B2']},
+    {q: 'What is C?', c: ['C0', 'C1', 'C2']},
+  ];
+  let currentNum = 0;
+
+  question.textContent = quizSet[currentNum].q;
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[j], arr[i]] = [arr[i], arr[j]];
+    }
+    return arr;
+  }
+
+  const shuffledChoices = shuffle([...quizSet[currentNum].c]);
+  // console.log(quizSet[currentNum].c);
+  shuffledChoices.forEach(choice => {
+    const li = document.createElement('li');
+    li.textContent = choice;
+    choices.appendChild(li);
+  });
+}
